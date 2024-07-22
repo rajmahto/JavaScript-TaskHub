@@ -11,8 +11,11 @@ Securely stores user credentials for personalized task management.
 Task Management:
 
 1.Add Tasks: Users can input new tasks into a designated field and add them to their task list.
+
 2.Edit Tasks: Users can modify the details of existing tasks directly within the application.
+
 3.Remove Tasks: Tasks can be deleted from the list with a single click.
+
 4.Mark Tasks as Done: Provides a way to mark tasks as completed, visually distinguishing them from pending tasks.
 
 Local Storage:
