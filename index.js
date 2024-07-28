@@ -43,8 +43,39 @@ document.addEventListener('DOMContentLoaded', () => {
             saveTodos();
         });
 
+        const editBtn = document.createElement('button');
+        editBtn.textContent = 'Edit';
+        editBtn.classList.add('btn');
+        editBtn.addEventListener('click', () => {
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.value = span.textContent;
+            li.insertBefore(input, span);
+            li.removeChild(span);
+
+            const saveBtn = document.createElement('button');
+            saveBtn.textContent = 'Save';
+            saveBtn.classList.add('btn');
+            saveBtn.addEventListener('click', () => {
+                if (input.value.trim() !== '') {
+                    span.textContent = input.value.trim();
+                    li.insertBefore(span, input);
+                    li.removeChild(input);
+                    li.removeChild(saveBtn);
+                    li.insertBefore(editBtn, removeBtn);
+                    saveTodos();
+                } else {
+                    alert('Todo text cannot be empty');
+                }
+            });
+
+            li.insertBefore(saveBtn, removeBtn);
+            li.removeChild(editBtn);
+        });
+
         li.appendChild(checkBox);
         li.appendChild(span);
+        li.appendChild(editBtn);
         li.appendChild(removeBtn);
         todoList.appendChild(li);
         saveTodos();
@@ -119,3 +150,4 @@ document.addEventListener('DOMContentLoaded', () => {
         signupForm.reset();
     });
 });
+
